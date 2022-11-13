@@ -36,4 +36,16 @@ public class DummyControllerTests {
                         "4")))
                 .andDo(print());
     }
+
+    @Test
+    public void mockNumTest2() throws Exception {
+
+        Mockito.when(ds.getMsg()).thenReturn("4");
+
+        this.mockMvc.perform(get("/"))
+                .andExpect(status().isOk())
+                .andExpect(content().string(containsString(
+                        "4")))
+                .andDo(print());
+    }
 }
